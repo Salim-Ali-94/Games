@@ -4,8 +4,6 @@ import random
 
 class Snake(object):
 
-	erase = lambda self: pg.draw.rect(screen, background_colour, [self.position[0][0], self.position[0][1], self.unit, self.unit])
-
 	def __init__(self, fruit):
 
 		self.unit = 10
@@ -35,14 +33,13 @@ class Snake(object):
 					self.y_velocity = 0
 					self.x_velocity = self.unit
 
+		self.erase()
 		self.x_position += self.x_velocity
 		self.y_position += self.y_velocity
 		location = (self.x_position, self.y_position)
 		self.position.append(location)
-		self.erase()
-
-		if (len(self.position) > self.length):
-			self.position.pop(0)
+		self.position.pop(0)
+		self.create()
 
 
 	def create(self):
@@ -57,8 +54,17 @@ class Snake(object):
 			else:
 				colour = self.body_colour
 
-			pg.draw.rect(screen, colour, [location[0], location[1], self.unit, self.unit])
+			cube = [location[0], location[1], self.unit, self.unit]
+			pg.draw.rect(screen, colour, cube)
 			counter += 1
+
+
+	def erase(self):
+
+		for location in self.position:
+
+			cube = [location[0], location[1], self.unit, self.unit]
+			pg.draw.rect(screen, background_colour, cube)
 
 
 	def check_boundary_collision(self):
@@ -81,8 +87,6 @@ class Snake(object):
 		for point in body:
 
 			if (point == head):
-
-				self.indicator = 1
 				self.reset(fruit)
 
 
@@ -94,19 +98,21 @@ class Snake(object):
 
 		if ((x < self.unit) & (y < self.unit)):
 
+			location = (self.x_position, self.y_position)
+			self.position.insert(0, location)
+			self.length = len(self.position)
 			fruit.spawn()
-			self.length += 1
 
-			if (self.length > 50):
-				self.speed += 1
-			elif (self.length > 40):
-				self.speed += 1
-			elif (self.length > 30):
-				self.speed += 1
-			elif (self.length > 20):
-				self.speed += 1
-			elif (self.length > 10):
-				self.speed += 1
+			if (self.length == 10):
+				self.speed += 2
+			elif (self.length == 20):
+				self.speed += 2
+			elif (self.length == 30):
+				self.speed += 2
+			elif (self.length == 40):
+				self.speed += 2
+			elif (self.length == 50):
+				self.speed += 2
 
 
 	def reset(self, fruit):
@@ -187,7 +193,6 @@ def game_manager():
 		snake.check_body_collision(fruit)
 		snake.check_boundary_collision()
 		snake.eat(fruit)
-		snake.create()
 		pg.display.update()
 		clock.tick(snake.speed)
 
