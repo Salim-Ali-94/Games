@@ -150,11 +150,12 @@ class Fruit(object):
 
 	def __init__(self):
 
-		self.unit = 10
 		self.colour = white
+		self.unit = 10
 		self.x_position = 0
 		self.y_position = 0
-		self.position = (self.x_position, self.y_position)
+		location = (self.x_position, self.y_position)
+		self.position = location
 
 
 	def update_position(self, snake):
