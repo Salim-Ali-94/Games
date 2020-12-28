@@ -97,15 +97,15 @@ class Snake(object):
 			fruit.spawn()
 			self.length += 1
 
-			if (self.length > 10):
-				self.speed += 1
-			elif (self.length > 20):
-				self.speed += 1
-			elif (self.length > 30):
+			if (self.length > 50):
 				self.speed += 1
 			elif (self.length > 40):
 				self.speed += 1
-			elif (self.length > 50):
+			elif (self.length > 30):
+				self.speed += 1
+			elif (self.length > 20):
+				self.speed += 1
+			elif (self.length > 10):
 				self.speed += 1
 
 
