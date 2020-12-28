@@ -134,13 +134,13 @@ class Snake(object):
 			tail = (self.x_position, self.y_position)
 			head = (self.x_position, self.y_position - self.unit)
 		elif (direction == "left"):
-			self.x_velocity = -self.unit
 			self.y_velocity = 0
+			self.x_velocity = -self.unit
 			tail = (self.x_position, self.y_position)
 			head = (self.x_position + self.unit, self.y_position)
 		elif (direction == "right"):
-			self.x_velocity = self.unit
 			self.y_velocity = 0
+			self.x_velocity = self.unit
 			tail = (self.x_position, self.y_position)
 			head = (self.x_position - self.unit, self.y_position)
 
