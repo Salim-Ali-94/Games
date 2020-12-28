@@ -6,11 +6,10 @@ class Snake(object):
 
 	erase = lambda self: pg.draw.rect(screen, background_colour, [self.position[0][0], self.position[0][1], self.unit, self.unit])
 
-	def __init__(self):
+	def __init__(self, fruit):
 
 		self.unit = 10
-		self.indicator = 0
-		self.reset()
+		self.reset(fruit)
 		self.body_colour = pg.Color("#086623")
 		self.head_colour = pg.Color("#4f7942")
 
@@ -95,8 +94,6 @@ class Snake(object):
 
 		if ((x < self.unit) & (y < self.unit)):
 
-			fruit.erase()
-			fruit.update_position(self.position)
 			fruit.spawn()
 			self.length += 1
 
@@ -112,7 +109,7 @@ class Snake(object):
 				self.speed += 1
 
 
-	def reset(self, fruit = None):
+	def reset(self, fruit):
 
 		screen.fill(background_colour)
 		self.speed = framerate
@@ -143,24 +140,21 @@ class Snake(object):
 
 		self.position = [tail, head]
 		self.length = len(self.position)
-
-		if (self.indicator != 0):
-
-			fruit.erase()
-			fruit.update_position(self.position)
-			fruit.spawn()
-			self.indicator = 0
+		fruit.spawn()
 
 
 class Fruit(object):
 
-	spawn = lambda self: pg.draw.rect(screen, self.colour, [self.position[0], self.position[1], self.unit, self.unit])
+	create = lambda self: pg.draw.rect(screen, self.colour, [self.position[0], self.position[1], self.unit, self.unit])
 	erase = lambda self: pg.draw.rect(screen, background_colour, [self.x_position, self.y_position, self.unit, self.unit])
 
 	def __init__(self):
 
 		self.unit = 10
 		self.colour = white
+		self.x_position = 0
+		self.y_position = 0
+		self.position = (self.x_position, self.y_position)
 
 
 	def update_position(self, snake):
@@ -173,12 +167,17 @@ class Fruit(object):
 			self.update_position(snake)
 
 
+	def spawn(self):
+
+		self.erase()
+		self.update_position(self.position)
+		self.create()
+
+
 def game_manager():
 
-	snake = Snake()
 	fruit = Fruit()
-	fruit.update_position(snake.position)
-	fruit.spawn()
+	snake = Snake(fruit)
 	end = False
 
 	while not end:
@@ -206,5 +205,4 @@ if __name__ == "__main__":
 	screen.fill(background_colour)
 	pg.display.set_caption("Snake")
 	clock = pg.time.Clock()
-
 	game_manager()
