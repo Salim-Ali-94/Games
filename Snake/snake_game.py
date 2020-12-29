@@ -9,7 +9,7 @@ class Snake(object):
 		self.unit = 10
 		self.reset(fruit)
 		self.body_colour = pg.Color("#086623")
-		self.head_colour = pg.Color("#4f7942")
+		self.head_colour = pg.Color("#4CBB17")
 
 
 	def update_position(self):
@@ -103,15 +103,15 @@ class Snake(object):
 			self.length = len(self.position)
 			fruit.spawn()
 
-			if (self.length == 10):
+			if (self.length == 15):
 				self.speed += 2
-			elif (self.length == 20):
+			elif (self.length == 25):
 				self.speed += 2
-			elif (self.length == 30):
+			elif (self.length == 35):
 				self.speed += 2
-			elif (self.length == 40):
+			elif (self.length == 45):
 				self.speed += 2
-			elif (self.length == 50):
+			elif (self.length == 55):
 				self.speed += 2
 
 
@@ -126,25 +126,29 @@ class Snake(object):
 		if (direction == "up"):
 			self.x_velocity = 0
 			self.y_velocity = -self.unit
-			tail = (self.x_position, self.y_position)
-			head = (self.x_position, self.y_position + self.unit)
+			head = (self.x_position, self.y_position)
+			body = (self.x_position, self.y_position + self.unit)
+			tail = (self.x_position, self.y_position + 2*self.unit)
 		elif (direction == "down"):
 			self.x_velocity = 0
 			self.y_velocity = self.unit
-			tail = (self.x_position, self.y_position)
-			head = (self.x_position, self.y_position - self.unit)
+			head = (self.x_position, self.y_position)
+			body = (self.x_position, self.y_position - self.unit)
+			tail = (self.x_position, self.y_position - 2*self.unit)
 		elif (direction == "left"):
 			self.y_velocity = 0
 			self.x_velocity = -self.unit
-			tail = (self.x_position, self.y_position)
-			head = (self.x_position + self.unit, self.y_position)
+			head = (self.x_position, self.y_position)
+			body = (self.x_position + self.unit, self.y_position)
+			tail = (self.x_position + 2*self.unit, self.y_position)
 		elif (direction == "right"):
 			self.y_velocity = 0
 			self.x_velocity = self.unit
-			tail = (self.x_position, self.y_position)
-			head = (self.x_position - self.unit, self.y_position)
+			head = (self.x_position, self.y_position)
+			body = (self.x_position - self.unit, self.y_position)
+			tail = (self.x_position - 2*self.unit, self.y_position)
 
-		self.position = [tail, head]
+		self.position = [tail, body, head]
 		self.length = len(self.position)
 		fruit.spawn()
 
@@ -202,7 +206,7 @@ if __name__ == "__main__":
 	pg.init()
 	screen_width = 1200
 	screen_height = 600
-	size = (screen_width, screen_height)
+	size = [screen_width, screen_height]
 	white = (255, 255, 255)
 	grey = (50, 50, 50)
 	background_colour = grey
