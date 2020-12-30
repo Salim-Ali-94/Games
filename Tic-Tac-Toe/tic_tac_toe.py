@@ -86,6 +86,7 @@ class Tic_Tac_Toe(object):
 						position = 9
 
 		if (position != 0):
+			
 			if (self.token%2 != 0):
 				line1_start = self.X_state[position - 1][0]
 				line1_end = self.X_state[position - 1][1]
