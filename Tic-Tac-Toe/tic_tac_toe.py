@@ -6,7 +6,7 @@ class Tic_Tac_Toe(object):
 
 	def __init__(self):
 
-		self.square = screen_width / 3
+		self.square = screen_width // 3
 		self.line_colour = line_colour
 		self.line_thickness = 4
 		self.X_colour = X_colour
