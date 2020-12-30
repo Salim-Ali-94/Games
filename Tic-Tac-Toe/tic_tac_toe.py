@@ -1,6 +1,5 @@
 import pygame as pg
 from pygame import gfxdraw
-import random
 
 
 class Tic_Tac_Toe(object):
