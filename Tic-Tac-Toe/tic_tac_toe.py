@@ -34,8 +34,7 @@ class Tic_Tac_Toe(object):
 		pg.draw.line(screen, self.line_colour, vertical_line1_start, vertical_line1_end, self.line_thickness)
 		pg.draw.line(screen, self.line_colour, vertical_line2_start, vertical_line2_end, self.line_thickness)
 		self.positions = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-		self.X_board = []
-		self.O_board = []
+		self.X_board, self.O_board = [], []
 		self.token = 0
 
 
@@ -53,56 +52,38 @@ class Tic_Tac_Toe(object):
 					validity = self.check_available_positions(1)
 					if (validity == True):
 						position = 1
-					else:
-						position = 0
 				elif (event.key == pg.K_2):
 					validity = self.check_available_positions(2)
 					if (validity == True):
 						position = 2
-					else:
-						position = 0
 				elif (event.key == pg.K_3):
 					validity = self.check_available_positions(3)
 					if (validity == True):
 						position = 3
-					else:
-						position = 0
 				elif (event.key == pg.K_4):
 					validity = self.check_available_positions(4)
 					if (validity == True):
 						position = 4
-					else:
-						position = 0
 				elif (event.key == pg.K_5):
 					validity = self.check_available_positions(5)
 					if (validity == True):
 						position = 5
-					else:
-						position = 0
 				elif (event.key == pg.K_6):
 					validity = self.check_available_positions(6)
 					if (validity == True):
 						position = 6
-					else:
-						position = 0
 				elif (event.key == pg.K_7):
 					validity = self.check_available_positions(7)
 					if (validity == True):
 						position = 7
-					else:
-						position = 0
 				elif (event.key == pg.K_8):
 					validity = self.check_available_positions(8)
 					if (validity == True):
 						position = 8
-					else:
-						position = 0
 				elif (event.key == pg.K_9):
 					validity = self.check_available_positions(9)
 					if (validity == True):
 						position = 9
-					else:
-						position = 0
 
 		if (position != 0):
 			if (self.token%2 != 0):
