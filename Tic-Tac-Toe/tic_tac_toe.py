@@ -13,8 +13,8 @@ class Tic_Tac_Toe(object):
 		self.O_colour = O_colour
 		self.token_thickness = 7
 		self.clearance = 20
-		self.initialize_states()
 		self.initialize_board()
+		self.initialize_states()
 		self.game_conditions()
 
 
