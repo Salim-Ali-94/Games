@@ -155,49 +155,49 @@ class Tic_Tac_Toe(object):
 	def initialize_states(self):
 
 		X1 = [(0 + self.clearance, 0 + self.clearance),
-			  (self.square - self.clearance, self.square - self.clearance),
-			  (self.square - self.clearance, 0 + self.clearance),
-			  (0 + self.clearance, self.square - self.clearance)]
+		      (self.square - self.clearance, self.square - self.clearance),
+		      (self.square - self.clearance, 0 + self.clearance),
+		      (0 + self.clearance, self.square - self.clearance)]
 
 		X2 = [(self.square + self.line_thickness + self.clearance, 0 + self.clearance),
-			  (2*self.square + self.line_thickness - self.clearance, self.square - self.clearance),
-			  (2*self.square + self.line_thickness - self.clearance, 0 + self.clearance),
-			  (self.square + self.line_thickness + self.clearance, self.square - self.clearance)]
+		      (2*self.square + self.line_thickness - self.clearance, self.square - self.clearance),
+		      (2*self.square + self.line_thickness - self.clearance, 0 + self.clearance),
+		      (self.square + self.line_thickness + self.clearance, self.square - self.clearance)]
 
 		X3 = [(2*self.square + 2*self.line_thickness + self.clearance, 0 + self.clearance),
-			  (3*self.square + 2*self.line_thickness - self.clearance, self.square - self.clearance),
-			  (3*self.square + 2*self.line_thickness - self.clearance, 0 + self.clearance),
-			  (2*self.square + 2*self.line_thickness + self.clearance, self.square - self.clearance)]
+		      (3*self.square + 2*self.line_thickness - self.clearance, self.square - self.clearance),
+		      (3*self.square + 2*self.line_thickness - self.clearance, 0 + self.clearance),
+		      (2*self.square + 2*self.line_thickness + self.clearance, self.square - self.clearance)]
 
 		X4 = [(0 + self.clearance, self.square + self.line_thickness + self.clearance),
-			  (self.square - self.clearance, 2*self.square + self.line_thickness - self.clearance),
-			  (self.square - self.clearance, self.square + self.line_thickness + self.clearance),
-			  (0 + self.clearance, 2*self.square + self.line_thickness - self.clearance)]
+		      (self.square - self.clearance, 2*self.square + self.line_thickness - self.clearance),
+		      (self.square - self.clearance, self.square + self.line_thickness + self.clearance),
+		      (0 + self.clearance, 2*self.square + self.line_thickness - self.clearance)]
 
 		X5 = [(self.square + self.line_thickness + self.clearance, self.square + self.line_thickness + self.clearance),
-			  (2*self.square + self.line_thickness - self.clearance, 2*self.square + self.line_thickness - self.clearance),
-			  (2*self.square + self.line_thickness - self.clearance, self.square + self.line_thickness + self.clearance),
-			  (self.square + self.line_thickness + self.clearance, 2*self.square + self.line_thickness - self.clearance)]
+		      (2*self.square + self.line_thickness - self.clearance, 2*self.square + self.line_thickness - self.clearance),
+		      (2*self.square + self.line_thickness - self.clearance, self.square + self.line_thickness + self.clearance),
+		      (self.square + self.line_thickness + self.clearance, 2*self.square + self.line_thickness - self.clearance)]
 
 		X6 = [(2*self.square + 2*self.line_thickness + self.clearance, self.square + self.line_thickness + self.clearance),
-			  (3*self.square + 2*self.line_thickness - self.clearance, 2*self.square + self.line_thickness - self.clearance),
-			  (3*self.square + 2*self.line_thickness - self.clearance, self.square + self.line_thickness + self.clearance),
-			  (2*self.square + 2*self.line_thickness + self.clearance, 2*self.square + self.line_thickness - self.clearance)]
+		      (3*self.square + 2*self.line_thickness - self.clearance, 2*self.square + self.line_thickness - self.clearance),
+		      (3*self.square + 2*self.line_thickness - self.clearance, self.square + self.line_thickness + self.clearance),
+		      (2*self.square + 2*self.line_thickness + self.clearance, 2*self.square + self.line_thickness - self.clearance)]
 
 		X7 = [(0 + self.clearance, 2*self.square + 2*self.line_thickness + self.clearance),
-			  (self.square - self.clearance, 3*self.square + 2*self.line_thickness - self.clearance),
-			  (self.square - self.clearance, 2*self.square + 2*self.line_thickness + self.clearance),
-			  (0 + self.clearance, 3*self.square + 2*self.line_thickness - self.clearance)]
+		      (self.square - self.clearance, 3*self.square + 2*self.line_thickness - self.clearance),
+		      (self.square - self.clearance, 2*self.square + 2*self.line_thickness + self.clearance),
+		      (0 + self.clearance, 3*self.square + 2*self.line_thickness - self.clearance)]
 
 		X8 = [(self.square + self.line_thickness + self.clearance, 2*self.square + 2*self.line_thickness + self.clearance),
-			  (2*self.square + self.line_thickness - self.clearance, 3*self.square + 2*self.line_thickness - self.clearance),
-			  (2*self.square + self.line_thickness - self.clearance, 2*self.square + 2*self.line_thickness + self.clearance),
-			  (self.square + self.line_thickness + self.clearance, 3*self.square + 2*self.line_thickness - self.clearance)]
+		      (2*self.square + self.line_thickness - self.clearance, 3*self.square + 2*self.line_thickness - self.clearance),
+		      (2*self.square + self.line_thickness - self.clearance, 2*self.square + 2*self.line_thickness + self.clearance),
+		      (self.square + self.line_thickness + self.clearance, 3*self.square + 2*self.line_thickness - self.clearance)]
 
 		X9 = [(2*self.square + 2*self.line_thickness + self.clearance, 2*self.square + 2*self.line_thickness + self.clearance),
-			  (3*self.square + 2*self.line_thickness - self.clearance, 3*self.square + 2*self.line_thickness - self.clearance),
-			  (3*self.square + 2*self.line_thickness - self.clearance, 2*self.square + 2*self.line_thickness + self.clearance),
-			  (2*self.square + 2*self.line_thickness + self.clearance, 3*self.square + 2*self.line_thickness - self.clearance)]
+		      (3*self.square + 2*self.line_thickness - self.clearance, 3*self.square + 2*self.line_thickness - self.clearance),
+		      (3*self.square + 2*self.line_thickness - self.clearance, 2*self.square + 2*self.line_thickness + self.clearance),
+		      (2*self.square + 2*self.line_thickness + self.clearance, 3*self.square + 2*self.line_thickness - self.clearance)]
 
 		O1 = [int((0 + self.square) / 2), int((0 + self.square) / 2)]
 		O2 = [int(screen_width / 2), int((0 + self.square) / 2)]
