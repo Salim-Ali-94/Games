@@ -32,14 +32,11 @@ class Snake(object):
 				elif (event.key == pg.K_RIGHT):
 					self.y_velocity = 0
 					self.x_velocity = self.unit
-
-		self.erase()
-		self.x_position += self.x_velocity
-		self.y_position += self.y_velocity
+		
+		self.spawn()
 		location = (self.x_position, self.y_position)
 		self.position.append(location)
 		self.position.pop(0)
-		self.create()
 
 
 	def create(self):
@@ -54,8 +51,8 @@ class Snake(object):
 			else:
 				colour = self.body_colour
 
-			cube = [location[0], location[1], self.unit, self.unit]
-			pg.draw.rect(screen, colour, cube)
+			square = [location[0], location[1], self.unit, self.unit]
+			pg.draw.rect(screen, colour, square)
 			counter += 1
 
 
@@ -63,10 +60,18 @@ class Snake(object):
 
 		for location in self.position:
 
-			cube = [location[0], location[1], self.unit, self.unit]
-			pg.draw.rect(screen, background_colour, cube)
+			square = [location[0], location[1], self.unit, self.unit]
+			pg.draw.rect(screen, background_colour, square)
 
 
+	def spawn(self):
+
+		self.erase()
+		self.x_position += self.x_velocity
+		self.y_position += self.y_velocity
+		self.create()
+
+			
 	def check_boundary_collision(self):
 
 		if ((self.x_velocity <= 0) & (self.x_position < 0)): 
