@@ -154,7 +154,7 @@ class TicTacToe(object):
 
 				X_counter, O_counter = 0, 0
 
-		elif (self.token >= 9):
+		if (self.token >= 9):
 
 			pg.time.delay(1000)
 			self.initialize_board()
