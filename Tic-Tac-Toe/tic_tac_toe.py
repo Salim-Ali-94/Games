@@ -41,7 +41,7 @@ class TicTacToe(object):
 
 	def insert(self):
 
-		position = self.keyboard_handler()
+		position = self.event_handler()
 
 		if (position != 0):
 			
@@ -67,7 +67,7 @@ class TicTacToe(object):
 				self.O_board.append(board)
 
 
-	def keyboard_handler(self):
+	def event_handler(self):
 
 		position = 0
 
@@ -110,6 +110,53 @@ class TicTacToe(object):
 					if (validity == True):
 						position = 8
 				elif (event.key == pg.K_9):
+					validity = self.check_available_positions(9)
+					if (validity == True):
+						position = 9
+			elif (event.type == pg.MOUSEBUTTONDOWN):
+				x, y = pg.mouse.get_pos()
+				if ((x >= 0) & (x <= self.square + self.line_thickness / 2) & 
+			            (y >= 0) & (y <= self.square + self.line_thickness / 2)):
+					validity = self.check_available_positions(1)
+					if (validity == True):
+						position = 1
+				elif ((x >= self.square + self.line_thickness / 2) & (x <= 2*self.square + 3*self.line_thickness / 2) & 
+				      (y >= 0) & (y <= self.square + self.line_thickness / 2)):
+					validity = self.check_available_positions(2)
+					if (validity == True):
+						position = 2
+				elif ((x >= 2*self.square + 3*self.line_thickness / 2) & (x <= screen_width) & 
+				      (y >= 0) & (y <= self.square + self.line_thickness / 2)):
+					validity = self.check_available_positions(3)
+					if (validity == True):
+						position = 3
+				elif ((x >= 0) & (x <= self.square + self.line_thickness / 2) & 
+				      (y >= self.square + self.line_thickness / 2) & (y <= 2*self.square + 3*self.line_thickness / 2)):
+					validity = self.check_available_positions(4)
+					if (validity == True):
+						position = 4
+				elif ((x >= self.square + self.line_thickness / 2) & (x <= 2*self.square + 3*self.line_thickness / 2) & 
+				      (y >= self.square + self.line_thickness / 2) & (y <= 2*self.square + 3*self.line_thickness / 2)):
+					validity = self.check_available_positions(5)
+					if (validity == True):
+						position = 5
+				elif ((x >= 2*self.square + 3*self.line_thickness / 2) & (x <= screen_width) & 
+				      (y >= self.square + self.line_thickness / 2) & (y <= 2*self.square + 3*self.line_thickness / 2)):
+					validity = self.check_available_positions(6)
+					if (validity == True):
+						position = 6
+				elif ((x >= 0) & (x <= self.square + self.line_thickness / 2) & 
+				      (y >= 2*self.square + 3*self.line_thickness / 2) & (y <= screen_height)):
+					validity = self.check_available_positions(7)
+					if (validity == True):
+						position = 7
+				elif ((x >= self.square + self.line_thickness / 2) & (x <= 2*self.square + 3*self.line_thickness / 2) & 
+				      (y >= 2*self.square + 3*self.line_thickness / 2) & (y <= screen_height)):
+					validity = self.check_available_positions(8)
+					if (validity == True):
+						position = 8
+				elif ((x >= 2*self.square + 3*self.line_thickness / 2) & (x <= screen_width) & 
+				      (y >= 2*self.square + 3*self.line_thickness / 2) & (y <= screen_height)):
 					validity = self.check_available_positions(9)
 					if (validity == True):
 						position = 9
