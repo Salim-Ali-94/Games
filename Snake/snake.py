@@ -15,11 +15,11 @@ class Snake(object):
 
 	def update_position(self):
 
-		self.keyboard_handler()
+		self.event_handler()
 		self.spawn()
 
 
-	def keyboard_handler(self):
+	def event_handler(self):
 
 		for event in pg.event.get():
 
