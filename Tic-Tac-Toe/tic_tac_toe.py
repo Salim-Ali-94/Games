@@ -185,7 +185,7 @@ class TicTacToe(object):
 
 			for x_win, o_win in zip(self.win_X, self.win_O):
 
-				for index in  range(3):
+				for index in range(3):
 
 					if (x_win[index] in self.X_board):
 						X_counter += 1
