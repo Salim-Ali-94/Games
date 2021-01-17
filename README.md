@@ -6,4 +6,4 @@ ________________________________________________________________________________
 
 Bugs (Snake):
 
-If the player turns while the snake is entirely off-screen it fails to reappear on the other end of the screen until the player moves back in the direction of the wall.
+If the player turns while the snake is off-screen, it fails to reappear on the other end of the screen until the player moves back in the direction of the wall.
