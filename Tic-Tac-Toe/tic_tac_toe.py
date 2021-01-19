@@ -183,13 +183,13 @@ class TicTacToe(object):
 
 		if (self.token >= 6):			
 
-			for x_win, o_win in zip(self.win_X, self.win_O):
+			for X, O in zip(self.X_win, self.O_win):
 
 				for index in range(3):
 
-					if (x_win[index] in self.X_board):
+					if (X[index] in self.X_board):
 						X_counter += 1
-					if (o_win[index] in self.O_board):
+					if (O[index] in self.O_board):
 						O_counter += 1
 
 				if (X_counter == 3):
@@ -270,22 +270,22 @@ class TicTacToe(object):
 
 	def game_conditions(self):
 
-		win1_X = [("X", 1), ("X", 2), ("X", 3)]
-		win2_X = [("X", 4), ("X", 5), ("X", 6)]
-		win3_X = [("X", 7), ("X", 8), ("X", 9)]
-		win4_X = [("X", 1), ("X", 4), ("X", 7)]
-		win5_X = [("X", 2), ("X", 5), ("X", 8)]
-		win6_X = [("X", 3), ("X", 6), ("X", 9)]
-		win7_X = [("X", 1), ("X", 5), ("X", 9)]
-		win8_X = [("X", 3), ("X", 5), ("X", 7)]
-		win1_O = [("O", 1), ("O", 2), ("O", 3)]
-		win2_O = [("O", 4), ("O", 5), ("O", 6)]
-		win3_O = [("O", 7), ("O", 8), ("O", 9)]
-		win4_O = [("O", 1), ("O", 4), ("O", 7)]
-		win5_O = [("O", 2), ("O", 5), ("O", 8)]
-		win6_O = [("O", 3), ("O", 6), ("O", 9)]
-		win7_O = [("O", 1), ("O", 5), ("O", 9)]
-		win8_O = [("O", 3), ("O", 5), ("O", 7)]
+		X_win1 = [("X", 1), ("X", 2), ("X", 3)]
+		X_win2 = [("X", 4), ("X", 5), ("X", 6)]
+		X_win3 = [("X", 7), ("X", 8), ("X", 9)]
+		X_win4 = [("X", 1), ("X", 4), ("X", 7)]
+		X_win5 = [("X", 2), ("X", 5), ("X", 8)]
+		X_win6 = [("X", 3), ("X", 6), ("X", 9)]
+		X_win7 = [("X", 1), ("X", 5), ("X", 9)]
+		X_win8 = [("X", 3), ("X", 5), ("X", 7)]
+		O_win1 = [("O", 1), ("O", 2), ("O", 3)]
+		O_win2 = [("O", 4), ("O", 5), ("O", 6)]
+		O_win3 = [("O", 7), ("O", 8), ("O", 9)]
+		O_win4 = [("O", 1), ("O", 4), ("O", 7)]
+		O_win5 = [("O", 2), ("O", 5), ("O", 8)]
+		O_win6 = [("O", 3), ("O", 6), ("O", 9)]
+		O_win7 = [("O", 1), ("O", 5), ("O", 9)]
+		O_win8 = [("O", 3), ("O", 5), ("O", 7)]
 
-		self.win_X = [win1_X, win2_X, win3_X, win4_X, win5_X, win6_X, win7_X, win8_X]
-		self.win_O = [win1_O, win2_O, win3_O, win4_O, win5_O, win6_O, win7_O, win8_O]
+		self.X_win = [X_win1, X_win2, X_win3, X_win4, X_win5, X_win6, X_win7, X_win8]
+		self.O_win = [O_win1, O_win2, O_win3, O_win4, O_win5, O_win6, O_win7, O_win8]
