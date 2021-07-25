@@ -23,9 +23,7 @@ class Fruit(object):
 		self.x_position = random.randrange(0, screen_width - self.unit, self.unit)
 		self.y_position = random.randrange(0, screen_height - self.unit, self.unit)
 		self.position = (self.x_position, self.y_position)
-
-		if (self.position in snake):
-			self.update_position(snake)
+		if (self.position in snake): self.update_position(snake)
 
 
 	def spawn(self):
