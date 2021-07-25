@@ -24,19 +24,29 @@ class Snake(object):
 		for event in pg.event.get():
 
 			if (event.type == pg.QUIT):
+
 				pg.quit()
 				quit()
+				
 			if (event.type == pg.KEYDOWN):
+				
 				if (event.key == pg.K_UP):
+					
 					self.x_velocity = 0
 					self.y_velocity = -self.unit
+					
 				elif (event.key == pg.K_DOWN):
+					
 					self.x_velocity = 0
 					self.y_velocity = self.unit
+					
 				elif (event.key == pg.K_LEFT):
+					
 					self.y_velocity = 0
 					self.x_velocity = -self.unit
+					
 				elif (event.key == pg.K_RIGHT):
+					
 					self.y_velocity = 0
 					self.x_velocity = self.unit
 
@@ -48,11 +58,8 @@ class Snake(object):
 
 		for location in self.position:
 
-			if (counter == depth - 1):
-				colour = self.head_colour
-			else:
-				colour = self.body_colour
-
+			if (counter == depth - 1): colour = self.head_colour
+			else: colour = self.body_colour
 			square = [location[0], location[1], self.unit, self.unit]
 			pg.draw.rect(screen, colour, square)
 			counter += 1
@@ -79,25 +86,17 @@ class Snake(object):
 
 	def check_boundary_collision(self):
 
-		if ((self.x_velocity <= 0) & (self.x_position < 0)): 
-			self.x_position = screen_width
-		elif ((self.x_velocity >= 0) & (self.x_position > screen_width)): 
-			self.x_position = 0 - self.unit
-		elif ((self.y_velocity >= 0) & (self.y_position > screen_height)): 
-			self.y_position = 0 - self.unit
-		elif ((self.y_velocity <= 0) & (self.y_position < 0)): 
-			self.y_position = screen_height
+		if ((self.x_velocity <= 0) & (self.x_position < 0)): self.x_position = screen_width
+		elif ((self.x_velocity >= 0) & (self.x_position > screen_width)): self.x_position = 0 - self.unit
+		elif ((self.y_velocity >= 0) & (self.y_position > screen_height)): self.y_position = 0 - self.unit
+		elif ((self.y_velocity <= 0) & (self.y_position < 0)):  self.y_position = screen_height
 
 
 	def check_body_collision(self, fruit):
 
 		body = self.position[:-1]
 		head = self.position[-1]
-
-		for point in body:
-
-			if (point == head):
-				self.reset(fruit)
+		for point in body: self.reset(fruit) if (point == head) else None
 
 
 	def eat(self, fruit):
@@ -112,17 +111,11 @@ class Snake(object):
 			self.position.insert(0, location)
 			self.length = len(self.position)
 			fruit.spawn()
-
-			if (self.length == 15):
-				self.speed += 2
-			elif (self.length == 25):
-				self.speed += 2
-			elif (self.length == 35):
-				self.speed += 2
-			elif (self.length == 45):
-				self.speed += 2
-			elif (self.length == 55):
-				self.speed += 2
+			if (self.length == 15): self.speed += 2
+			elif (self.length == 25): self.speed += 2
+			elif (self.length == 35): self.speed += 2
+			elif (self.length == 45): self.speed += 2
+			elif (self.length == 55): self.speed += 2
 
 
 	def reset(self, fruit):
@@ -134,24 +127,31 @@ class Snake(object):
 		direction = random.choice(["up", "down", "left", "right"])
 
 		if (direction == "up"):
+			
 			self.x_velocity = 0
 			self.y_velocity = -self.unit
 			head = (self.x_position, self.y_position)
 			body = (self.x_position, self.y_position + self.unit)
 			tail = (self.x_position, self.y_position + 2*self.unit)
+			
 		elif (direction == "down"):
+			
 			self.x_velocity = 0
 			self.y_velocity = self.unit
 			head = (self.x_position, self.y_position)
 			body = (self.x_position, self.y_position - self.unit)
 			tail = (self.x_position, self.y_position - 2*self.unit)
+			
 		elif (direction == "left"):
+			
 			self.y_velocity = 0
 			self.x_velocity = -self.unit
 			head = (self.x_position, self.y_position)
 			body = (self.x_position + self.unit, self.y_position)
 			tail = (self.x_position + 2*self.unit, self.y_position)
+			
 		elif (direction == "right"):
+			
 			self.y_velocity = 0
 			self.x_velocity = self.unit
 			head = (self.x_position, self.y_position)
