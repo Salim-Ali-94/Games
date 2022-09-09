@@ -209,7 +209,7 @@ class TicTacToe(object):
 		X_counter = 0
 		O_counter = 0
 
-		if (self.token >= 6):			
+		if (self.token >= 5):			
 
 			for X, O in zip(self.X_win, self.O_win):
 
