@@ -1,4 +1,4 @@
-from constants import *
+from snake_constants import *
 import pygame as pg
 import random
 
@@ -9,8 +9,8 @@ class Snake(object):
 
 		self.unit = 10
 		self.reset(fruit)
-		self.body_colour = pg.Color("#086623")
-		self.head_colour = pg.Color("#4CBB17")
+		self.body_colour = body_colour
+		self.head_colour = head_colour
 
 
 	def update_position(self):
@@ -27,7 +27,7 @@ class Snake(object):
 
 				pg.quit()
 				quit()
-				
+
 			if (event.type == pg.KEYDOWN):
 				
 				if (event.key == pg.K_UP):
@@ -76,20 +76,12 @@ class Snake(object):
 	def spawn(self):
 
 		self.erase()
-		self.x_position += self.x_velocity
-		self.y_position += self.y_velocity
+		self.x_position = (self.x_position + self.x_velocity)%screen_width
+		self.y_position = (self.y_position + self.y_velocity)%screen_height
 		location = (self.x_position, self.y_position)
 		self.position.append(location)
 		self.position.pop(0)
 		self.create()
-
-
-	def check_boundary_collision(self):
-
-		if ((self.x_velocity <= 0) & (self.x_position < 0)): self.x_position = screen_width
-		elif ((self.x_velocity >= 0) & (self.x_position > screen_width)): self.x_position = 0 - self.unit
-		elif ((self.y_velocity >= 0) & (self.y_position > screen_height)): self.y_position = 0 - self.unit
-		elif ((self.y_velocity <= 0) & (self.y_position < 0)):  self.y_position = screen_height
 
 
 	def check_body_collision(self, fruit):
