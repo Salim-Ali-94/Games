@@ -13,7 +13,6 @@ def game_manager():
 
 		python.update_position()
 		python.check_body_collision(apple)
-		python.check_boundary_collision()
 		python.eat(apple)
 		pg.display.update()
 		clock.tick(python.speed)
