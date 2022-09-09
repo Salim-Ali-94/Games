@@ -22,18 +22,18 @@ class TicTacToe(object):
 	def initialize_board(self):
 
 		screen.fill(background_colour)
-		horizontal_line1_start = (0, self.square + self.line_thickness / 2)
-		horizontal_line1_end = (screen_width, self.square + self.line_thickness / 2)
-		horizontal_line2_start = (0, 2*self.square + self.line_thickness)
-		horizontal_line2_end = (screen_width, 2*self.square + self.line_thickness)
-		vertical_line1_start = (self.square + self.line_thickness / 2, 0)
-		vertical_line1_end = (self.square + self.line_thickness / 2, screen_height)
-		vertical_line2_start = (2*self.square + self.line_thickness, 0)
-		vertical_line2_end = (2*self.square + self.line_thickness, screen_height)
-		pg.draw.line(screen, self.line_colour, horizontal_line1_start, horizontal_line1_end, self.line_thickness)
-		pg.draw.line(screen, self.line_colour, horizontal_line2_start, horizontal_line2_end, self.line_thickness)
-		pg.draw.line(screen, self.line_colour, vertical_line1_start, vertical_line1_end, self.line_thickness)
-		pg.draw.line(screen, self.line_colour, vertical_line2_start, vertical_line2_end, self.line_thickness)
+		x0 = (0, self.square + self.line_thickness / 2)
+		x1 = (screen_width, self.square + self.line_thickness / 2)
+		x2 = (0, 2*self.square + self.line_thickness)
+		x3 = (screen_width, 2*self.square + self.line_thickness)
+		y0 = (self.square + self.line_thickness / 2, 0)
+		y1 = (self.square + self.line_thickness / 2, screen_height)
+		y2 = (2*self.square + self.line_thickness, 0)
+		y3 = (2*self.square + self.line_thickness, screen_height)
+		pg.draw.line(screen, self.line_colour, x0, x1, self.line_thickness)
+		pg.draw.line(screen, self.line_colour, x2, x3, self.line_thickness)
+		pg.draw.line(screen, self.line_colour, y0, y1, self.line_thickness)
+		pg.draw.line(screen, self.line_colour, y2, y3, self.line_thickness)
 		self.positions = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 		self.X_board, self.O_board = [], []
 		self.token = 0
@@ -47,12 +47,12 @@ class TicTacToe(object):
 			
 			if (self.token%2 != 0):
 				
-				line1_start = self.X_state[position - 1][0]
-				line1_end = self.X_state[position - 1][1]
-				line2_start = self.X_state[position - 1][2]
-				line2_end = self.X_state[position - 1][3]
-				pg.draw.line(screen, self.X_colour, line1_start, line1_end, self.token_thickness)
-				pg.draw.line(screen, self.X_colour, line2_start, line2_end, self.token_thickness)
+				x0 = self.X_state[position - 1][0]
+				x1 = self.X_state[position - 1][1]
+				x2 = self.X_state[position - 1][2]
+				x3 = self.X_state[position - 1][3]
+				pg.draw.line(screen, self.X_colour, x0, x1, self.token_thickness)
+				pg.draw.line(screen, self.X_colour, x2, x3, self.token_thickness)
 				board = ("X", position)
 				self.X_board.append(board)
 				
