@@ -1,3 +1,5 @@
+import os
+os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
 import pygame as pg
 import tic_tac_toe as ttt
 from constants import *
