@@ -1,4 +1,6 @@
 from snake_constants import *
+import os
+os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
 import pygame as pg
 import random
 
