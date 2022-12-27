@@ -20,6 +20,8 @@ def game_manager():
 		clock.tick(python.speed)
 
 
+		
+		
 if __name__ == "__main__":
 
 	pg.init()
