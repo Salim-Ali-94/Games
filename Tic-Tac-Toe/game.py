@@ -17,6 +17,8 @@ def game_manager():
 		TTT.check_game_condition()
 		clock.tick(framerate)
 
+		
+		
 
 if __name__ == "__main__":
 
