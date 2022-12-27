@@ -2,6 +2,7 @@ import os
 os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
 import pygame as pg
 
+
 screen_width = 600
 screen_height = 600
 size = [screen_width, screen_height]
