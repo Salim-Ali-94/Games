@@ -28,13 +28,17 @@ class Bird(pg.sprite.Sprite):
         self.ground_scroll = ground_scroll
         self.ground_height = 768
         self.scroll_threshold = 35
-        self.pipe_height = [-180, 180]
+        self.pipe_length = [-180, 180]
         self.pipe_interval = [1500, 100000]
         self.velocity_max = 8
 
 
     def update(self):
 
+        self.counter += 1
+        self.velocity += 0.5
+        if (self.velocity > self.velocity_max): self.velocity = self.velocity_max
+        if (self.rect.bottom < self.ground_height): self.rect.y += int(self.velocity)
         self.eventHandler()
         self.fly()
 
@@ -51,10 +55,6 @@ class Bird(pg.sprite.Sprite):
 
     def fly(self):
 
-        self.counter += 1
-        self.velocity += 0.5
-        if (self.velocity > self.velocity_max): self.velocity = self.velocity_max
-        if (self.rect.bottom < self.ground_height): self.rect.y += int(self.velocity)
         if ((pg.mouse.get_pressed()[0] == 1) and (self.clicked == False)): self.velocity, self.clicked = -10, True
         if (pg.mouse.get_pressed()[0] == 0): self.clicked = False
         if ((pg.key.get_pressed()[pg.K_SPACE] == True) and (self.pressed == False)): self.velocity, self.pressed = -10, True
@@ -104,7 +104,7 @@ class Bird(pg.sprite.Sprite):
 
         if ((time_now - self.time_previous) > random.randint(self.pipe_interval[0], self.pipe_interval[1])):
 
-            pipe_height = random.randint(self.pipe_height[0], self.pipe_height[1])
+            pipe_height = random.randint(self.pipe_length[0], self.pipe_length[1])
             pipe_bottom = pipe.Pipe(screen_width, int(screen_height / 2) + pipe_height)
             pipe_top = pipe.Pipe(screen_width, int(screen_height / 2) + pipe_height, -1)
             pipes.add(pipe_bottom), pipes.add(pipe_top)
