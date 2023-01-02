@@ -26,7 +26,7 @@ class Bird(pg.sprite.Sprite):
         self.score = 0
         self.time_previous = time_previous
         self.ground_scroll = ground_scroll
-        self.ground_height = 768
+        self.ground_height = ground_height
         self.scroll_threshold = 35
         self.pipe_length = [-180, 180]
         self.pipe_interval = [1500, 100000]
