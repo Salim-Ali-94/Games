@@ -9,9 +9,9 @@ from constants import *
 def gameManager():
     
     bird_group = pg.sprite.Group()
+    pipe_group = pg.sprite.Group()
     hawk = bird.Bird(100, int(screen_height / 2))
     bird_group.add(hawk)
-    pipe_group = pg.sprite.Group()
     end = False
 
     while not end:
