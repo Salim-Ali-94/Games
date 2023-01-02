@@ -12,8 +12,10 @@ class Pipe(pg.sprite.Sprite):
         pg.sprite.Sprite.__init__(self)
         self.image = pg.image.load(f"assets/pipe.png")
         self.rect = self.image.get_rect()
-        if (position == 1): self.rect.topleft = [x, y + int(random.randint(160, 200) / 2)]
-        else: self.image, self.rect.bottomleft = pg.transform.flip(self.image, False, True), [x, y - int(random.randint(180, 200) / 2)]
+        self.gap_interval = [180, 200]
+        self.length_interval = [160, 200]
+        if (position == 1): self.rect.topleft = [x, y + int(random.randint(self.length_interval[0], self.length_interval[1]) / 2)]
+        else: self.image, self.rect.bottomleft = pg.transform.flip(self.image, False, True), [x, y - int(random.randint(self.gap_interval[0], self.gap_interval[1]) / 2)]
 
 
     def update(self):
