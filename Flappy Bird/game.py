@@ -6,7 +6,7 @@ import bird, pipe
 from constants import *
 
 
-def game_manager():
+def gameManager():
     
     bird_group = pg.sprite.Group()
     hawk = bird.Bird(100, int(screen_height / 2))
@@ -37,4 +37,4 @@ if __name__ == "__main__":
     background = pg.image.load("assets/bg.png")
     ground = pg.image.load("assets/ground.png")
     clock = pg.time.Clock()
-    game_manager()
+    gameManager()
