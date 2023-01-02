@@ -72,7 +72,6 @@ class Bird(pg.sprite.Sprite):
 
     def restart(self, pipes):
 
-        self.reset = False
         pipes.empty()
         self.rect.x = 100
         self.rect.y = int(screen_height / 2)
