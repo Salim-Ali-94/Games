@@ -35,11 +35,11 @@ class Bird(pg.sprite.Sprite):
 
     def update(self):
 
-        self.event_handler()
+        self.eventHandler()
         self.fly()
 
 
-    def event_handler(self):
+    def eventHandler(self):
 
         for event in pg.event.get():
 
