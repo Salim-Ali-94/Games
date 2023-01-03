@@ -5,7 +5,7 @@ import snake
 import fruit
 
 
-def game_manager():
+def gameManager():
 
 	apple = fruit.Fruit()
 	python = snake.Snake(apple)
@@ -13,8 +13,8 @@ def game_manager():
 
 	while not end:
 
-		python.update_position()
-		python.check_body_collision(apple)
+		python.updatePosition()
+		python.checkCollision(apple)
 		python.eat(apple)
 		pg.display.update()
 		clock.tick(python.speed)
@@ -27,4 +27,4 @@ if __name__ == "__main__":
 	pg.init()
 	pg.display.set_caption("Snake")
 	clock = pg.time.Clock()
-	game_manager()
+	gameManager()

@@ -10,18 +10,19 @@ class Snake(object):
 	def __init__(self, fruit):
 
 		self.unit = 10
+		self.score = 0
 		self.reset(fruit)
-		self.body_colour = body_colour
-		self.head_colour = head_colour
+		self.body_colour = BODY_COLOUR
+		self.head_colour = HEAD_COLOUR
 
 
-	def update_position(self):
+	def updatePosition(self):
 
-		self.event_handler()
+		self.eventHandler()
 		self.spawn()
 
 
-	def event_handler(self):
+	def eventHandler(self):
 
 		for event in pg.event.get():
 
@@ -72,21 +73,21 @@ class Snake(object):
 		for location in self.position:
 
 			square = [location[0], location[1], self.unit, self.unit]
-			pg.draw.rect(screen, background_colour, square)
+			pg.draw.rect(screen, BACKGROUND_COLOUR, square)
 	
 
 	def spawn(self):
 
 		self.erase()
-		self.x_position = (self.x_position + self.x_velocity)%screen_width
-		self.y_position = (self.y_position + self.y_velocity)%screen_height
+		self.x_position = (self.x_position + self.x_velocity)%SCREEN_WIDTH
+		self.y_position = (self.y_position + self.y_velocity)%SCREEN_HEIGHT
 		location = (self.x_position, self.y_position)
 		self.position.append(location)
 		self.position.pop(0)
 		self.create()
 
 
-	def check_body_collision(self, fruit):
+	def checkCollision(self, fruit):
 
 		body = self.position[:-1]
 		head = self.position[-1]
@@ -110,14 +111,15 @@ class Snake(object):
 			elif (self.length == 35): self.speed += 2
 			elif (self.length == 45): self.speed += 2
 			elif (self.length == 55): self.speed += 2
-
+			self.score += 1
 
 	def reset(self, fruit):
 
-		screen.fill(background_colour)
-		self.speed = framerate
-		self.x_position = random.randrange(0, screen_width - self.unit, self.unit)
-		self.y_position = random.randrange(0, screen_height - self.unit, self.unit)
+		screen.fill(BACKGROUND_COLOUR)
+		self.score = 0
+		self.speed = FRAMERATE
+		self.x_position = random.randrange(0, SCREEN_WIDTH - self.unit, self.unit)
+		self.y_position = random.randrange(0, SCREEN_HEIGHT - self.unit, self.unit)
 		direction = random.choice(["up", "down", "left", "right"])
 
 		if (direction == "up"):
