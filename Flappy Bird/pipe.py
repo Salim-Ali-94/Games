@@ -7,18 +7,16 @@ from constants import *
 
 class Pipe(pg.sprite.Sprite):
 
-    def __init__(self, x, y, position = 1):
+    def __init__(self, x = SCREEN_WIDTH, y = SCREEN_HEIGHT // 2, position = 1):
 
         pg.sprite.Sprite.__init__(self)
         self.image = pg.image.load(f"assets/pipe.png")
         self.rect = self.image.get_rect()
-        self.gap_interval = [180, 200]
-        self.length_interval = [160, 200]
-        if (position == 1): self.rect.topleft = [x, y + int(random.randint(self.length_interval[0], self.length_interval[1]) / 2)]
-        else: self.image, self.rect.bottomleft = pg.transform.flip(self.image, False, True), [x, y - int(random.randint(self.gap_interval[0], self.gap_interval[1]) / 2)]
+        if (position == 1): self.rect.topleft = [x, y + int(random.randint(GAP_INTERVAL[0], GAP_INTERVAL[1]) / 2)]
+        else: self.image, self.rect.bottomleft = pg.transform.flip(self.image, False, True), [x, y - int(random.randint(GAP_INTERVAL[0], GAP_INTERVAL[1]) / 2)]
 
 
     def update(self):
 
-        self.rect.x -= scroll_speed
+        self.rect.x -= SCROLL_SPEED
         if (self.rect.right < 0): self.kill()
