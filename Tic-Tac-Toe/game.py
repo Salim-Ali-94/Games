@@ -5,7 +5,7 @@ import tic_tac_toe as ttt
 from constants import *
 
 
-def game_manager():
+def gameManager():
 
 	TTT = ttt.TicTacToe()
 	end = False
@@ -14,8 +14,8 @@ def game_manager():
 
 		TTT.insert()
 		pg.display.update()
-		TTT.check_game_condition()
-		clock.tick(framerate)
+		TTT.checkGameCondition()
+		clock.tick(FRAMERATE)
 
 		
 		
@@ -25,4 +25,4 @@ if __name__ == "__main__":
 	pg.init()
 	pg.display.set_caption("Tic-Tac-Toe")
 	clock = pg.time.Clock()
-	game_manager()
+	gameManager()

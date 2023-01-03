@@ -3,17 +3,13 @@ os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
 import pygame as pg
 
 
-screen_width = 600
-screen_height = 600
-size = [screen_width, screen_height]
-white = (255, 255, 255)
-grey = (50, 50, 50)
-green = pg.Color("#4CBB17")
-orange = pg.Color("#FD6A02")
-background_colour = grey
-line_colour = white
-X_colour = green
-O_colour = orange
-framerate = 15
-screen = pg.display.set_mode(size)
-screen.fill(background_colour)
+SCREEN_WIDTH = 600
+SCREEN_HEIGHT = 600
+SIZE = [SCREEN_WIDTH, SCREEN_HEIGHT]
+LINE_COLOUR = (255, 255, 255)
+BACKGROUND_COLOUR = (50, 50, 50)
+X_colour = pg.Color("#4CBB17")
+O_colour = pg.Color("#FD6A02")
+FRAMERATE = 15
+screen = pg.display.set_mode(SIZE)
+screen.fill(BACKGROUND_COLOUR)
