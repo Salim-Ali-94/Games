@@ -11,7 +11,7 @@ def gameManager():
     
     bird_group = pg.sprite.Group()
     pipe_group = pg.sprite.Group()
-    hawk = bird.Bird(100, int(SCREEN_HEIGHT / 2))
+    hawk = bird.Bird(100, SCREEN_HEIGHT // 2)
     tunnel = pipe.Pipe()
     bird_group.add(hawk)
     end = False
