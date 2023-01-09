@@ -1,7 +1,6 @@
 import os
 os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
 import pygame as pg
-import pipe
 import bird, pipe
 from constants import *
 from utility import *
